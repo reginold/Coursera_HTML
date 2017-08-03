@@ -1,0 +1,50 @@
+app.js
+app.locals.posts = require('./posts.data');
+
+(or index.js)
+var jsonData =  require('../posts.data');
+
+res.render('index',{
+  title:'Express',
+  posts:jsonData
+});
+
+
+
+
+index.ejs
+<body>
+  <% header.ejs%>
+  <h3><%= posts.categoryName %></h3>
+  
+  <ul>
+    <% posts.categories.forEach(function(item){ %>
+      <li><%= item.title %></li>
+      <li><%= item.url %></li>
+      <li><%= item.date %></li>
+     <% });%>
+  </ul>
+  
+  posts.json
+  
+  {
+   "categoryName":"This is FUJITSU NEWS",
+   "categories":[
+    {
+      "title":"the first one",
+      "url":"www.....1.",
+      "date":"dfdf1"
+    },
+    {
+      "title":"the second one",
+      "url":"www......2",
+      "date":"dfdf2"
+    },
+    {
+      "title":"the third one",
+      "url":"www......3",
+      "date":"dfdf3"    
+    }
+   ]
+}
+----------------------
